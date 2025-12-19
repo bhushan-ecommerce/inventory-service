@@ -15,7 +15,7 @@ import com.ecommerce.inventoryservice.dto.InventoryStockDTO;
 import com.ecommerce.inventoryservice.service.InventoryService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/inventory")
 public class InventoryController {
 
 	private InventoryService inventoryService;
@@ -55,7 +55,7 @@ public class InventoryController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(confirmStock);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{productId}")
 	public ResponseEntity<InventoryResponseDTO> getInventoryByProductId(@PathVariable Long productId){
 		InventoryResponseDTO inventoryByProductId = inventoryService.getInventoryByProductId(productId);
 		return ResponseEntity.status(HttpStatus.OK).body(inventoryByProductId);

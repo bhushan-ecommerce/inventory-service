@@ -64,7 +64,6 @@ public class InventoryServiceImpl implements InventoryService {
 		Inventory inventory = inventoryRepository.findByProductId(dto.productId())
 				.orElseThrow(() -> new InventoryNotFoundException(dto.productId()));
 
-		int newAvailable = 0;
 
 		if (inventory.getAvailableQty() >= dto.quantity()) {
 
